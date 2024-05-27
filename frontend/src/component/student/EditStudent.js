@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { useNavigate, useParams } from "react-router-dom";
-import { Link } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 
 const EditStudent = () => {
   let navigate = useNavigate();
@@ -15,7 +14,7 @@ const EditStudent = () => {
   const { firstName, lastName, email, department } = student;
   useEffect(() => {
     loadStudent();
-  });
+  }, []);
   const loadStudent = async () => {
     const result = await axios.get(
       `http://localhost:9192/students/student/${id}`
